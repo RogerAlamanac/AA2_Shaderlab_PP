@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 47f3d4283a357454f9c0f99314cae948, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalA:
@@ -96,15 +96,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowAlbedo:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: baf33fed59ee30848bd2771cf802c324, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowMAOHS:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ae301eb01f409e64496a9a80062d0771, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SnowNormal:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2391a44511a79fd458b649ab7bad40d6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -134,7 +134,7 @@ Material:
     - _SrcBlend: 1
     - _UVScale: 0.4
     - _UVSec: 0
-    - _VerticalDisplacement: 0.2
+    - _VerticalDisplacement: 1
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
