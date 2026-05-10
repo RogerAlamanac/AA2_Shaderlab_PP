@@ -2590,7 +2590,7 @@
     "m_ObjectId": "586629cc253d4e75ace35e6a68a2f77f",
     "m_Title": "Grid Mask",
     "m_Position": {
-        "x": 851.1998901367188,
+        "x": 851.199951171875,
         "y": 1472.7999267578125
     }
 }
@@ -4363,7 +4363,7 @@
     "m_ObjectId": "c6b1e715afc04c3483cab1cc11b81826",
     "m_Title": "Apply Mask with Inside Grid Effect",
     "m_Position": {
-        "x": 2332.800048828125,
+        "x": 2332.7998046875,
         "y": 800.800048828125
     }
 }
@@ -4897,7 +4897,7 @@
     "m_ObjectId": "ee042e55dae04ce9997910843cd88874",
     "m_Title": "Line Effect",
     "m_Position": {
-        "x": 1543.1998291015625,
+        "x": 1543.199951171875,
         "y": -234.4000244140625
     }
 }
