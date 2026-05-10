@@ -24,6 +24,7 @@ Shader "Custom/TerrainVertexPaint"
         _NoiseTex ("Noise Texture", 2D) = "gray" {}
         _NoiseScale ("Noise Scale", Float) = 1.0
         _BlendDistance ("Blend Distance", Range(0.01, 1.0)) = 0.2
+        _HeightBlendStrength ("Height Blend Strength", Range(0.0, 2.0)) = 0.5
 
         [Header(Snow Settings)]
         _SnowMetallic ("Snow Metallic", Range(0,1)) = 0.0
@@ -60,6 +61,7 @@ Shader "Custom/TerrainVertexPaint"
         half _UVScale;
         half _NoiseScale;
         half _BlendDistance;
+        half _HeightBlendStrength;
 
         half _SnowMetallic;
         half _SnowSmoothness;
@@ -75,15 +77,15 @@ Shader "Custom/TerrainVertexPaint"
 
         void vert (inout appdata_full v)
         {
-            // Canal azul del vertex color = displacement vertical
             float displacementMask = saturate(v.color.b);
             v.vertex.y += displacementMask * _VerticalDisplacement;
         }
 
-        half GetBlendValue(half vertexMask, half noiseValue, half blendDistance)
+        half GetHeightBlend(half vertexMask, half noiseValue, half heightA, half heightB, half blendDistance, half heightStrength)
         {
-            half centeredNoise = noiseValue - 0.5h;
-            half blend = vertexMask + centeredNoise * blendDistance;
+            half centeredNoise = (noiseValue - 0.5h) * blendDistance;
+            half heightBias = (heightB - heightA) * heightStrength;
+            half blend = vertexMask + centeredNoise + heightBias;
             return saturate(blend);
         }
 
@@ -91,11 +93,7 @@ Shader "Custom/TerrainVertexPaint"
         {
             float2 uv = IN.uv_AlbedoA * _UVScale;
 
-            // Noise para romper la transición
             half noise = tex2D(_NoiseTex, uv * _NoiseScale).r;
-
-            // Canal rojo: mezcla entre A y B
-            half abBlend = GetBlendValue(IN.color.r, noise, _BlendDistance);
 
             fixed4 albedoA = tex2D(_AlbedoA, uv);
             fixed4 albedoB = tex2D(_AlbedoB, uv);
@@ -106,11 +104,22 @@ Shader "Custom/TerrainVertexPaint"
             fixed4 maohsA = tex2D(_MAOHSA, uv);
             fixed4 maohsB = tex2D(_MAOHSB, uv);
 
+            half heightA = maohsA.b;
+            half heightB = maohsB.b;
+
+            half abBlend = GetHeightBlend(
+                saturate(IN.color.r),
+                noise,
+                heightA,
+                heightB,
+                _BlendDistance,
+                _HeightBlendStrength
+            );
+
             fixed3 baseAlbedo = lerp(albedoA.rgb, albedoB.rgb, abBlend);
             half3 baseNormal = normalize(lerp(normalA, normalB, abBlend));
             fixed4 baseMAOHS = lerp(maohsA, maohsB, abBlend);
 
-            // Canal verde: mezcla con nieve
             half snowBlend = saturate(IN.color.g);
 
             fixed4 snowAlbedo = tex2D(_SnowAlbedo, uv);
@@ -121,11 +130,6 @@ Shader "Custom/TerrainVertexPaint"
             half3 finalNormal = normalize(lerp(baseNormal, snowNormal, snowBlend));
             fixed4 finalMAOHS = lerp(baseMAOHS, snowMAOHS, snowBlend);
 
-            // MAOHS:
-            // R = Metallic
-            // G = Ambient Occlusion
-            // B = Height
-            // A = Smoothness
             o.Albedo = finalAlbedo;
             o.Normal = finalNormal;
             o.Metallic = lerp(finalMAOHS.r, _SnowMetallic, snowBlend);

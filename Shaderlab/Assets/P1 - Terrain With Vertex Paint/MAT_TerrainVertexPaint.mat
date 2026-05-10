@@ -109,7 +109,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlendDistance: 0.2
+    - _BlendDistance: 0.15
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -119,17 +119,18 @@ Material:
     - _GlossinessA: 0.5
     - _GlossinessB: 0.5
     - _GlossyReflections: 1
+    - _HeightBlendStrength: 0.217
     - _Metallic: 0
     - _MetallicA: 0
     - _MetallicB: 0
     - _Mode: 0
-    - _NoiseScale: 1
+    - _NoiseScale: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SnowAO: 1
     - _SnowMetallic: 0
-    - _SnowSmoothness: 0.2
+    - _SnowSmoothness: 0.138
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVScale: 0.4
