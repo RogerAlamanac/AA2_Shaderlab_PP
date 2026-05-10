@@ -2029,7 +2029,7 @@ MonoBehaviour:
   vignetteMaterial: {fileID: 2100000, guid: 4c6acbd5f20473243a30639cbecbef41, type: 2}
   chromaticAberrationMaterial: {fileID: 2100000, guid: 54817104f44c5e84e859f5bd0073c15a, type: 2}
   lensDistortionMaterial: {fileID: 2100000, guid: ec679d8faf51a61439f060488868eef7, type: 2}
-  crtLinesMaterial: {fileID: 0}
+  crtLinesMaterial: {fileID: 2100000, guid: 5ea312448fd11a342b1250d7a40e62b9, type: 2}
   pixelatedMaterial: {fileID: 2100000, guid: b4503cccdd9ce9244ad9591d1f14dd03, type: 2}
   currentEffect: 1
 --- !u!4 &1627642152
