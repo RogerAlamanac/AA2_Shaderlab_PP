@@ -100,17 +100,18 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GridScale: 12.5
-    - _LineAmount: 0.91
-    - _MaxEffectDistance: 125.2
+    - _GridLineWidth: 0.05
+    - _GridScale: 0.51
+    - _LineAmount: 1
+    - _MaxEffectDistance: 112.1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _ScanFrequency: 0.04
+    - _ScanFrequency: 0.2
     - _ScanSize: 1
-    - _ScanSpeed: 0.5
+    - _ScanSpeed: 4.1
     - _ScanWidth: 6.3
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -125,7 +126,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.2284536, g: 0.6392157, b: 0.19215685, a: 1}
+    - _OutlineColor: {r: 0.19215685, g: 0.6392157, b: 0.22270355, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
