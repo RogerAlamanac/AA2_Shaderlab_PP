@@ -2028,7 +2028,7 @@ MonoBehaviour:
   colorGradientMaterial: {fileID: 2100000, guid: f6c20b8b44fe0894085b0c7eaaf543f1, type: 2}
   vignetteMaterial: {fileID: 2100000, guid: 4c6acbd5f20473243a30639cbecbef41, type: 2}
   chromaticAberrationMaterial: {fileID: 0}
-  lensDistortionMaterial: {fileID: 0}
+  lensDistortionMaterial: {fileID: 2100000, guid: ec679d8faf51a61439f060488868eef7, type: 2}
   crtLinesMaterial: {fileID: 0}
   pixelatedMaterial: {fileID: 2100000, guid: b4503cccdd9ce9244ad9591d1f14dd03, type: 2}
   currentEffect: 1
